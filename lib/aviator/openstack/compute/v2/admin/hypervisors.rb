@@ -7,8 +7,6 @@ module Aviator
     link 'documentation',
          'http://api.openstack.org/api-ref-compute-v2-ext.html#ext-os-hypervisors'
 
-    param :detail, required: false
-
     def headers
       super
     end
@@ -20,17 +18,7 @@ module Aviator
 
 
     def url
-      url = "#{ base_url }/os-hypervisors"
-
-      filters = []
-
-      if optional_params.include?('detail')
-        if params['detail']
-          url += "/#{detail}"
-        end
-      end
-
-      url
+      "#{ base_url }/os-hypervisors/detail"
     end
 
   end
